@@ -3,6 +3,10 @@ RealFileTest        = FileTest
 RealFileUtils       = FileUtils
 RealDir             = Dir
 
+def RealFile.const_missing const
+  const_set const, 42
+end
+
 module FakeFS
   def self.activate!
     Object.class_eval do

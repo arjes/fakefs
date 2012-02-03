@@ -32,7 +32,7 @@ module FakeFS
         File.join(parent.to_s, name)
       elsif parent && parent.to_s == '.'
         "#{File::PATH_SEPARATOR}#{name}"
-      elsif is_windows?
+      elsif Kernel.is_windows?
         ''
       else
         name

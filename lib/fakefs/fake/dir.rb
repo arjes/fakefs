@@ -28,11 +28,11 @@ module FakeFS
     end
 
     def to_s
-      if parent && parent.to_s != '.'
+      if parent && parent.to_s != '.' && parent.to_s != ''
         File.join(parent.to_s, name)
       elsif parent && parent.to_s == '.'
         "#{File::PATH_SEPARATOR}#{name}"
-      elsif Kernel.is_windows?
+      elsif Kernel.is_windows? && parent.nil?
         ''
       else
         name
